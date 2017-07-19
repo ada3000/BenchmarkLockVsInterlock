@@ -15,6 +15,10 @@ namespace TestInterlockedId
             int cores = System.Environment.ProcessorCount;
             int amount = 1000000000;
 
+            Console.WriteLine("Iterations: " + amount);
+
+            DoTest("1 thread lock generator", () => OneThTest(new LockGenerator(), amount));
+
             DoTest("1 thread lock generator", () => OneThTest(new LockGenerator(), amount));
             DoTest("1 thread lock free gen.", () => OneThTest(new InterlockGenerator(), amount));
             DoTest("1 thread no lock gen.  ", () => OneThTest(new InterlockGenerator(), amount));
